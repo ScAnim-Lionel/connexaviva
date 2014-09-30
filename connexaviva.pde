@@ -25,11 +25,11 @@ void setup()
   myPort = new Serial(this, "/dev/tty.usbmodem1421", 9600);
   myPort.bufferUntil('\n');
   
-  movie = new Movie(this, "cv.mov");
-  movie1 = new Movie(this, "cv3.mov");
-  movie2 = new Movie(this, "cv3.mov");
-  movie3 = new Movie(this, "cv3.mov");
-  movie4 = new Movie(this, "cv3.mov");
+  movie = new Movie(this, "cv.mov"); // sequence repos
+  movie1 = new Movie(this, "cv1.mov"); // metamorph. 1
+  movie2 = new Movie(this, "cv2.mov"); // metamorph. 2
+  movie3 = new Movie(this, "cv3.mov"); // metamorph. 3
+//  movie4 = new Movie(this, "cv3.mov"); // metamorph. 4
   movie.loop();
   
   glitchP5 = new GlitchP5(this); // initiate the glitchP5 instance;
@@ -41,7 +41,7 @@ void setup()
   // loadFile will look in all the same places as loadImage does.
   // this means you can find files that are in the data folder and the 
   // sketch folder. you can also pass an absolute path, or a URL.
-  player = minim.loadFile("11056.mp3");
+  player = minim.loadFile("shock.wav"); // schock sound
   
 
   
@@ -67,7 +67,7 @@ void draw()
       println("next");
       movie.noLoop();
       state="next";
-      videoIndex=ceil(random(1,4));
+      videoIndex=ceil(random(1,3));
       
 
       } 
