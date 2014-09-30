@@ -67,12 +67,9 @@ void draw()
       println("next");
       movie.noLoop();
       state="next";
-      videoIndex=ceil(random(1,3));
-      
-
-      } 
-      
-      
+      float hasard = random(1,3);
+      videoIndex=round(hasard);
+     }       
     }
   
   if (state=="next"){
@@ -86,42 +83,45 @@ void draw()
              if(movie1.time()==movie1.duration()){
              state="repos";
              println("repos");
+             movie1.jump(0);
              movie.jump(0);
              movie.loop();
              
              }
           }
              if (videoIndex==2){
-             //movie1.jump(0);
+             //movie2.jump(0);
              movie2.play();
              image(movie2, 0, 0, width, height);
              if(movie2.time()==movie2.duration()){
              state="repos";
              println("repos");
+             movie2.jump(0);
              movie.jump(0);
              movie.loop();
              
              }
              }
               if (videoIndex==3){
-             //movie1.jump(0);
              movie3.play();
              image(movie3, 0, 0, width, height);
              if(movie3.time()==movie3.duration()){
                state="repos";
                println("repos");
+               movie3.jump(0);
                movie.jump(0);
                movie.loop();
              
                }
               }
                if (videoIndex==4){
-             //movie1.jump(0);
+             //movie4.jump(0);
              movie4.play();
              image(movie4, 0, 0, width, height);
              if(movie4.time()==movie4.duration()){
              state="repos";
              println("repos");
+             movie4.jump(0);
              movie.jump(0);
              movie.loop();
              
