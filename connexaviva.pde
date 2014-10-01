@@ -128,9 +128,9 @@ void draw()
   } else {
     image(movie, 0, 0, width, height);
   }
-   fill(200,100);
+  // fill(200,100);
   // text("click to glitch", 10, 30);
-   text("framerate: "+frameRate, 10, height-10);
+  // text("framerate: "+frameRate, 10, height-10);
 
   glitchP5.run(); // this needs to be at the end of draw(). anything after it will not be drawn to the screen
 }
