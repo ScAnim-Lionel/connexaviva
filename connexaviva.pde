@@ -24,6 +24,8 @@ void setup()
 //  size(1280, 800, OPENGL);
   size(1280, 800);
   
+  noCursor();
+  
   String portName = Serial.list()[0];
   myPort = new Serial(this, portName, 9600);
   myPort.bufferUntil('\n');
