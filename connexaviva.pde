@@ -21,6 +21,8 @@ int videoIndex;
 
 void setup()
 {
+  
+//  frameRate(25);
 //  size(1280, 800, OPENGL);
   size(1280, 800);
   
@@ -29,11 +31,18 @@ void setup()
   String portName = Serial.list()[0];
   myPort = new Serial(this, portName, 9600);
   myPort.bufferUntil('\n');
-
+/*
   movie = new Movie(this, "cv.mov"); // sequence repos
   movie1 = new Movie(this, "cv1.mov"); // metamorph. 1
   movie2 = new Movie(this, "cv2.mov"); // metamorph. 2
-  movie3 = new Movie(this, "cv3.mov"); // metamorph. 3
+  movie3 = new Movie(this, "cv3.mov"); // metamorph. 3*/
+  
+  movie = new Movie(this, "ncv.avi"); // sequence repos
+  movie1 = new Movie(this, "ncv1.avi"); // metamorph. 1
+  movie2 = new Movie(this, "ncv2.avi"); // metamorph. 2
+  movie3 = new Movie(this, "ncv3.avi"); // metamorph. 3
+  
+  
   movie.loop();
 
   glitchP5 = new GlitchP5(this); // initiate the glitchP5 instance;
