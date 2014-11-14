@@ -10,8 +10,7 @@ AudioPlayer player;
 GlitchP5 glitchP5; // declare an instance of GlitchP5. only one is needed
 
 PFont font = createFont("Sans Serif", 20);
-Movie movie, movie1, movie2, movie3;
-
+Movie movie, movie1, movie2, movie3, movie4, movie5;
 
 Serial myPort;  
 
@@ -31,17 +30,13 @@ void setup()
   String portName = Serial.list()[0];
   myPort = new Serial(this, portName, 9600);
   myPort.bufferUntil('\n');
-/*
-  movie = new Movie(this, "cv.mov"); // sequence repos
-  movie1 = new Movie(this, "cv1.mov"); // metamorph. 1
-  movie2 = new Movie(this, "cv2.mov"); // metamorph. 2
-  movie3 = new Movie(this, "cv3.mov"); // metamorph. 3*/
   
   movie = new Movie(this, "ncv.avi"); // sequence repos
   movie1 = new Movie(this, "ncv1.avi"); // metamorph. 1
   movie2 = new Movie(this, "ncv2.avi"); // metamorph. 2
   movie3 = new Movie(this, "ncv3.avi"); // metamorph. 3
-  
+  movie4 = new Movie(this, "ncv4.avi"); // metamorph. 4
+  movie5 = new Movie(this, "ncv5.avi"); // metamorph. 5
   
   movie.loop();
 
@@ -79,7 +74,7 @@ void draw()
       println("next");
       movie.noLoop();
       state="next";
-      int rnd = int(random(3));
+      int rnd = int(random(5));
       videoIndex = (rnd +1);
 //      videoIndex = 1;
       println(videoIndex);
@@ -131,6 +126,34 @@ void draw()
           movie.loop();
         }
         image(movie3, 0, 0, width, height);
+      }
+      
+      if (videoIndex==4) {
+        movie4.play();
+
+        if (movie4.time()==movie4.duration()) {
+          movie4.stop();
+          movie4.jump(0);
+          state="repos";
+          println("repos");
+          movie.jump(0);
+          movie.loop();
+        }
+        image(movie4, 0, 0, width, height);
+      }
+      
+      if (videoIndex==5) {
+        movie5.play();
+
+        if (movie5.time()==movie5.duration()) {
+          movie5.stop();
+          movie5.jump(0);
+          state="repos";
+          println("repos");
+          movie.jump(0);
+          movie.loop();
+        }
+        image(movie5, 0, 0, width, height);
       }
       
     } else {
